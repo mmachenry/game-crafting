@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <title>Picker</title>
+    <script>
+      let current = {}
+      const images = {
+        "ant": [
+          "ants/noun-ant-6567831.svg",
+          "ants/noun-ant-7351125.svg",
+          "ants/noun-ant-7557782.svg",
+          "ants/noun-ant-7601792.svg",
+          "ants/noun-ant-7716525.svg",
+          "ants/noun-ant-853931.svg",
+        ],
+        "spider": [
+          "spiders/noun-spider-7321776.svg",
+          "spiders/noun-spider-7324393.svg",
+          "spiders/noun-spider-7340908.svg",
+          "spiders/noun-spider-7370295.svg",
+          "spiders/noun-spider-7417764.svg",
+          "spiders/noun-spider-7557769.svg",
+          "spiders/noun-spider-7607864.svg",
+          "spiders/noun-spider-7716529.svg",
+        ],
+        "grasshopper": [
+          "grasshoppers/noun-grasshopper-3930352.svg",
+          "grasshoppers/noun-grasshopper-4290747.svg",
+          "grasshoppers/noun-grasshopper-5760545.svg",
+          "grasshoppers/noun-grasshopper-6253953.svg",
+          "grasshoppers/noun-grasshopper-7557236.svg",
+          "grasshoppers/noun-insect-3499000.svg",
+          "grasshoppers/noun-locust-7745017.svg",
+        ],
+        "beetle": [
+          "beetles/noun-beetle-6690020.svg",
+          "beetles/noun-beetle-6905569.svg",
+          "beetles/noun-beetle-6983196.png",
+          "beetles/noun-beetle-7303472.svg",
+          "beetles/noun-beetle-7716517.svg",
+          "beetles/noun-beetle-7721788.svg",
+        ],
+        "bee": [
+          "bees/noun-bee-5903752.svg",
+          "bees/noun-bee-7115987.svg",
+          "bees/noun-bee-7257313.svg",
+          "bees/noun-bee-7257318.svg",
+          "bees/noun-bee-7337658.svg",
+          "bees/noun-bee-7411801.svg",
+          "bees/noun-bee-7484366.svg",
+          "bees/noun-bee-7508310.svg",
+          "bees/noun-bee-7511775.svg",
+          "bees/noun-bee-7540747.svg",
+          "bees/noun-bee-7716522.svg",
+          "bees/noun-bee-7721771.svg",
+         ],
+
+        "ladybug": [
+          "ladybugs/noun-ladybug-6801364.svg",
+          "ladybugs/noun-ladybug-7411894.svg",
+          "ladybugs/noun-ladybug-7439347.svg",
+          "ladybugs/noun-ladybug-7508318.svg",
+          "ladybugs/noun-ladybug-7540784.svg",
+          "ladybugs/noun-ladybug-7557243.svg",
+          "ladybugs/noun-ladybug-7583731.svg",
+          "ladybugs/noun-ladybug-7663686.svg",
+          "ladybugs/noun-ladybug-7686784.png",
+          "ladybugs/noun-ladybug-7706622.svg",
+          "ladybugs/noun-ladybug-7721797.svg",
+          "ladybugs/noun-ladybug-7732231.svg",
+         ],
+
+        "mosquito": [
+          "mosquitos/noun-mosquito-4997950.svg",
+          "mosquitos/noun-mosquito-5003826.svg",
+          "mosquitos/noun-mosquito-5359382.svg",
+          "mosquitos/noun-mosquito-5359399.svg",
+          "mosquitos/noun-mosquito-6098778.png",
+          "mosquitos/noun-mosquito-6098778.svg",
+          "mosquitos/noun-mosquito-6567878.svg",
+          "mosquitos/noun-mosquito-6811018.svg",
+          "mosquitos/noun-mosquito-6905567.svg",
+          "mosquitos/noun-mosquito-7257315.svg",
+          "mosquitos/noun-mosquito-7295769.svg",
+          "mosquitos/noun-mosquito-7520369.svg",
+          "mosquitos/noun-mosquito-7549796.svg",
+          "mosquitos/noun-mosquito-7557767.svg",
+          "mosquitos/noun-mosquito-7601828.svg",
+         ],
+
+        "pillbug": [
+          "pillbugs/noun-isopod-3386159.svg",
+          "pillbugs/noun-sow-bug-2619505.svg",
+          "pillbugs/noun-sow-bug-6567864.svg",
+         ],
+      }
+
+      function change (name) {
+        current[name] = current[name]+1
+        if (current[name] >= images[name].length) {
+            current[name] = 0
+        }
+        show(name)
+      }
+
+      function show (name) {  
+        document.getElementById(name).src = images[name][current[name]]
+      }
+
+      function showInit () {
+        ["ant","spider","grasshopper","beetle","bee","ladybug","mosquito","pillbug"]
+        .forEach((name) => {
+          current[name] = 0
+          show(name)
+        })
+      }
+
+    </script>
+  </head>
+  <body onload="showInit()">
+    <div>
+      <img id="ant" width="200em" src="" onclick="change('ant')"/>
+      <img id="spider" width="200em" src="" onclick="change('spider')"/>
+      <img id="grasshopper" width="200em" src="" onclick="change('grasshopper')"/>
+      <img id="beetle" width="200em" src="" onclick="change('beetle')"/>
+    </div>
+    <div>
+      <img id="bee" width="200em" src="" onclick="change('bee')"/>
+      <img id="ladybug" width="200em" src="" onclick="change('ladybug')"/>
+      <img id="mosquito" width="200em" src="" onclick="change('mosquito')"/>
+      <img id="pillbug" width="200em" src="" onclick="change('pillbug')"/>
+    </div>
+  </body>
+</html>
